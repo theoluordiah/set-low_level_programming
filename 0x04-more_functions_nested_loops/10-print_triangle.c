@@ -1,8 +1,14 @@
 #include "main.h"
 
+/**
+ * print_triangle - Prints a right‑aligned triangle of given size
+ * @size: The size of the triangle
+ *
+ * Return: void
+ */
 void print_triangle(int size)
 {
-	int i, j, space;
+	int row, spaces, hashes;
 
 	if (size <= 0)
 	{
@@ -10,14 +16,18 @@ void print_triangle(int size)
 		return;
 	}
 
-	for (i = 1; i <= size; i++)
+	for (row = 0; row < size; row++)
 	{
-		for (space = size - i; space > 0; space--)
+		/* Print leading spaces */
+		for (spaces = 0; spaces < size - row - 1; spaces++)
+		{
 			_putchar(' ');
-
-		for (j = 0; j < i; j++)
+		}
+		/* Print hashes */
+		for (hashes = 0; hashes <= row; hashes++)
+		{
 			_putchar('#');
-
+		}
 		_putchar('\n');
 	}
 }
